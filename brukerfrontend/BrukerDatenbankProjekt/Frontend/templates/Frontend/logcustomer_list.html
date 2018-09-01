@@ -1,0 +1,39 @@
+﻿{% extends "base_view.html" %}
+{% load static %}
+
+{% block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    
+</div>
+    
+{% endblock querybuttons %}
+
+{% block table %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Operation</th>
+                <th>Stamp</th>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Customer Key</th>
+                <th>DB_Version</th>
+            </tr>
+        </thead>
+        <tbody>
+{% for Logcustomer in object_list %}
+            <tr>
+                <td>{{ Logcustomer.log_id }}</td>
+                <td>{{ Logcustomer.operation }}</td>
+                <td>{{ Logcustomer.stamp }}</td>
+                <td>{{ Logcustomer.customer_id }}</td>
+                <td>{{ Logcustomer.customer_name }}</td>
+                <td>{{ Logcustomer.customer_key }}</td>
+                <td>{{ Logcustomer.DB_Version }}</td>
+            </tr>            
+        {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}

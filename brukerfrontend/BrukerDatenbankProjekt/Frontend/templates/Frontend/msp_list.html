@@ -1,0 +1,86 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{% block form %}
+    <form method='GET' action="/Msp/">
+        <div class="p-3 mb-2 bg-light text-dark">
+        <div class="form-inline my-2 my-lg-1">
+        <div class="form-group">
+            <select class="form-control" id="sel1" name="dropdown">
+            <option value="msp_id">ID</option>
+            <option value="msp_name">NAME</option>
+            <option value="msp_id_db7311">ID_DB7311</option>
+            <option value="change_since_version">Change Since Version</option>
+            <option value="fkeymeasurement">FK Measurement</option>
+            <option value="fkeysynonym">FK Sysnonym</option>
+            <option value="db_version">DB Version</option>
+            </select>
+            
+</div>
+
+        <input
+            class="form-control mr-sm-2"
+            type="text"
+            placeholder="Suchbegriff"
+            aria-label="Search"
+            name='q_1'
+         
+           >
+               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                +
+               </button>
+               <button type="submit" class="btn btn-default ml-2">
+                <span class="fa fa-search form-control-feedback"></span> Search
+               </button>
+        </div>
+        <div class="form-inline my-2 my-lg-1">
+            <div class="collapse" id="collapseExample">
+                <input
+                class="form-control mr-sm-2"
+                type="text"
+                placeholder="Suchbegriff"
+                aria-label="Search"
+                name='q_2'
+                >
+            </div>
+        </div>
+        </div>
+       </form>
+{% endblock %}
+{% block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    <button type="button" class="btn btn-primary btn-lg">
+       MSP
+    </button> 
+</div>
+{% endblock querybuttons %}
+{% block table %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>ID_DB7311</th>
+                <th>Change Since Version</th>
+                <th>FK Measurement</th>
+                <th>FK Synonym</th>
+                <th>DB Version</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for Msp in object_list %}
+            <tr>
+                <td>{{ Msp.msp_id }}</td>
+                <td>{{ Msp.msp_name }}</td>
+                <td>{{Msp.msp_id_db7311}}</td>
+                <td>{{Msp.change_since_version}}</td>
+                <td>{{Msp.fkeymeasurement}}</td>
+                <td>{{Msp.fkeysynonym}}</td>
+                <td>{{Msp.db_version}}</td>
+            </tr>
+        {% endfor %}
+         </tbody>
+    </table>
+{% endblock %}
+ 

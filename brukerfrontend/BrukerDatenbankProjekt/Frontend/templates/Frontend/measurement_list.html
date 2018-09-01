@@ -1,0 +1,40 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{%block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    
+</div>
+{% endblock querybuttons %}
+
+{% block table %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Extraction Method</th>
+                <th>Maldi Matrix</th>
+                <th>Operator</th>
+                <th>Maldi Run</th>
+                <th>Changes of types</th>
+                <th>Mass</th>
+                <th>DB_Version</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for Measurement in object_list %}
+            <tr>
+                <td>{{ Measurement.measurement_id }}</td>
+                <td>{{ Measurement.extraction_method }}</td>
+                <td>{{ Measurement.maldi_matrix }}</td>
+                <td>{{ Measurement.operator }}</td>
+                <td>{{ Measurement.maldi_run }}</td>
+                <td>{{ Measurement.changes_of_types }}</td>
+                <td>{{ Measurement.mass }}</td>
+                <td>{{ Measurement.DB_Version }}</td>
+            </tr>            
+        {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,35 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{%block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    <a href="{% url 'logcustomer' %}"
+     <button type="button" class="btn btn-primary btn-lg">Customer Log Historie</button>
+    </a>
+</div>
+
+{% endblock querybuttons %}
+
+{% block table %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Customer Key</th>
+                <th>DB_Version</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for Customer in object_list %}
+            <tr>
+                <td>{{ Customer.customer_id }}</td>
+                <td>{{ Customer.customer_name }}</td>
+                <td>{{ Customer.customer_key }}</td>
+                <td>{{ Customer.DB_Version }}</td>
+            </tr>            
+        {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}

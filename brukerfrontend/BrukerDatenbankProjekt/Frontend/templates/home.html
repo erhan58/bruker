@@ -1,0 +1,39 @@
+{%extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid text-center">
+    <div class="container">
+        <img class="img-responsive" src="static/images/BrukerLogo.png" style="width:33%"/>
+    </div>
+       <h1 class="display-4">Database Frontend</h1>
+       <hr class="my-3">
+    <div class="container">
+        <p class="lead">Please select a table.</p>
+        <br>
+    </div>
+    <a href="{% url 'customer' %}"
+     <button type="button" class="btn btn-primary btn-lg">Customer</button>
+    </a>
+    <a href="{% url 'dnasequence' %}"
+     <button type="button" class="btn btn-primary btn-lg">Dnasequence</button>
+    </a>    
+     <a href="{% url 'measurement' %}"
+     <button type="button" class="btn btn-primary btn-lg">Measurement</button>
+    </a>
+    <a href="{% url 'measuringdevice' %}"
+     <button type="button" class="btn btn-primary btn-lg">Measuringdevice</button>
+    </a>
+    <a href="{% url 'msp' %}"
+     <button type="button" class="btn btn-primary btn-lg">Msp</button>
+    </a>
+    <a href="{% url 'speciesgenus' %}"
+     <button type="button" class="btn btn-primary btn-lg">Speciesgenus</button>
+    </a>
+    <a href="{% url 'strain' %}"
+     <button type="button" class="btn btn-primary btn-lg">Strain</button>
+    </a>
+    <a href="{% url 'synonym' %}"
+     <button type="button" class="btn btn-primary btn-lg">Synonym</button>
+    </a>
+</div>
+{% endblock %}

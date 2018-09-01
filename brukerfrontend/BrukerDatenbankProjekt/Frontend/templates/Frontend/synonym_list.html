@@ -1,0 +1,36 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{%block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    
+</div>
+{% endblock querybuttons %}
+
+{% block table %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Comments</th>
+                <th>Matching Hints Metadata</th>
+                <th>IVD</th>
+                <th>DB_Version</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for Synonym in object_list %}
+            <tr>
+                <td>{{ Synonym.synonym_id }}</td>
+                <td>{{ Synonym.name }}</td>
+                <td>{{ Synonym.comments }}</td>
+                <td>{{ Synonym.matching_hints_metadata }}</td>
+                <td>{{ Synonym.ivd }}</td>
+                <td>{{ Synonym.DB_Version }}</td>
+            </tr>            
+        {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}

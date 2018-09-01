@@ -1,0 +1,43 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{% block table %}
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>growing_conditions</th>
+                <th>method_of_identification_key</th>
+                <th>method_of_identification</th>
+                <th>conserve</th>
+                <th>sample_submission</th>
+                <th>fkeyspeciesgenus</th>
+                <th>fkeymsp</th>
+                <th>fkeycustomer</th>
+                <th>fkeysequence</th>
+                <th>fkeymeasurement</th>
+                <th>db_version</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for Strain in object_list %}
+            <tr>
+                <td>{{ Strain.strain_id }}</td>
+                <td>{{ Strain.strain_name }}</td>
+                <td>{{ Strain.growing_conditions}}</td>
+                <td>{{ Strain.method_of_identifikation_key}}</td>
+                <td>{{Strain.method_of_identifikation}}</td>
+                <td>{{Strain.conserve}}</td>
+                <td>{{Strain.sample_submission}}</td>
+                <td>{{Strain.fkeyspeciesgenus}}</td>
+                <td>{{Strain.fkeymsp}}</td>
+                <td>{{Strain.fkeycustomer}}</td>
+                <td>{{Strain.fkeysequence}}</td>
+                <td>{{Strain.fkeymeasurement}}</td>
+                <td>{{Strain.db_version}}</td>
+            </tr>
+        {% endfor %}
+         </tbody>
+    </table>
+{% endblock table %}

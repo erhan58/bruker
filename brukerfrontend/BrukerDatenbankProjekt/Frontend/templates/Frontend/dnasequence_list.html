@@ -1,0 +1,32 @@
+﻿{%extends "base_view.html" %}
+{% load static %}
+
+{%block querybuttons %}
+<div class="p-3 mb-2 bg-light text-dark">
+    <h3 class="mx-auto"> Weitere Abfragen:</h3>
+    
+</div>
+{% endblock querybuttons %}
+
+{% block table %}
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Sequence</th>
+                <th>Sequence No</th>
+                <th>DB_Version</th>
+            </tr>
+        </thead>
+        <tbody >
+            {% for Dnasequence in object_list %}
+            <tr>
+                <td>{{ Dnasequence.dna_id }}</td>
+                <td>{{ Dnasequence.sequence }}</td>
+                <td>{{ Dnasequence.sequence_no }}</td>
+                <td>{{ Dnasequence.DB_Version }}</td>
+            </tr>            
+        {% endfor %}
+            </tbody>
+    </table>
+{% endblock %}
